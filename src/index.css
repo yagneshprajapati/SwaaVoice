@@ -1,0 +1,334 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700&display=swap');
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/sohne-mono.min.css');
+
+@layer base {
+  body {
+    @apply bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent overscroll/bounce effect on mobile */
+    overscroll-behavior: none;
+  }
+
+  /* Improve animation performance with GPU acceleration */
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Global scrollbar styles - super thin and minimal */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.3);
+    border-radius: 20px;
+    border: transparent;
+  }
+  
+  .dark * {
+    scrollbar-color: rgba(75, 85, 99, 0.3) transparent;
+  }
+  
+  .dark *::-webkit-scrollbar-thumb {
+    background-color: rgba(75, 85, 99, 0.3);
+  }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2;
+  }
+  
+  .btn-primary {
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+  }
+  
+  .btn-secondary {
+    @apply bg-secondary-600 text-white hover:bg-secondary-700 focus:ring-secondary-500;
+  }
+  
+  .card {
+    @apply bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden;
+  }
+  
+  /* App layout specific styles */
+  .app-layout {
+    @apply h-screen flex flex-col lg:flex-row;
+  }
+  
+  .app-sidebar {
+    @apply w-20 lg:w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700;
+  }
+  
+  .app-content {
+    @apply flex-1 overflow-y-auto;
+  }
+
+  .minimal-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(156, 163, 175, 0.3) transparent;
+  }
+  
+  .minimal-scrollbar::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+  }
+  
+  .minimal-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .minimal-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(156, 163, 175, 0.3);
+    border-radius: 20px;
+    border: transparent;
+  }
+  
+  .dark .minimal-scrollbar {
+    scrollbar-color: rgba(55, 65, 81, 0.3) transparent;
+  }
+  
+  .dark .minimal-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(55, 65, 81, 0.3);
+  }
+  
+  /* Glass morphism */
+  .glass-effect {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-md;
+  }
+  
+  /* Gradient animations */
+  .gradient-move-bg {
+    background-size: 200% 200%;
+    animation: gradient-shift 5s ease infinite;
+  }
+  
+  @keyframes gradient-shift {
+    0% { background-position: 0% 50% }
+    50% { background-position: 100% 50% }
+    100% { background-position: 0% 50% }
+  }
+  
+  /* Button hover effect */
+  .hover-lift {
+    @apply transition-all duration-300;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Animated card */
+  .card-animated {
+    @apply transition-all duration-300;
+  }
+  
+  .card-animated:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but allow scrolling */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari, Opera */
+  }
+  
+  /* Tap highlight removal for mobile */
+  .no-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  /* Height constraints for mobile app layout */
+  .h-mobile-screen {
+    height: calc(100vh - 64px); /* Subtract mobile header height */
+  }
+
+  .content-container {
+    @apply w-full h-full rounded-2xl bg-white dark:bg-gray-800 shadow-xl overflow-hidden;
+  }
+  
+  .page-title {
+    @apply font-display text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary-700 to-primary-500 dark:from-primary-400 dark:to-primary-300;
+  }
+  
+  .card-shadow {
+    @apply shadow-[5px_5px_15px_rgba(0,0,0,0.05),-5px_-5px_15px_rgba(255,255,255,0.8)] dark:shadow-[5px_5px_15px_rgba(0,0,0,0.2),-5px_-5px_15px_rgba(255,255,255,0.02)];
+  }
+  
+  /* Primary color gradient background */
+  .primary-gradient {
+    @apply bg-gradient-to-r from-primary-600 to-primary-500;
+  }
+
+  /* Secondary color gradient background */
+  .secondary-gradient {
+    @apply bg-gradient-to-r from-secondary-600 to-secondary-500;
+  }
+
+  /* Creative gradient combining primary and secondary */
+  .creative-gradient {
+    @apply bg-gradient-to-br from-primary-500 to-secondary-500;
+  }
+  
+  /* Reduced motion for accessibility */
+  @media (prefers-reduced-motion) {
+    * {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Additional Animations */
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(-20px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  @keyframes scaleIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes pingOnce {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes gradient-xy {
+    0% { background-position: 0% 0% }
+    25% { background-position: 100% 0% }
+    50% { background-position: 100% 100% }
+    75% { background-position: 0% 100% }
+    100% { background-position: 0% 0% }
+  }
+  
+  /* Animation utility classes */
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease forwards;
+  }
+  
+  .animate-slideUp {
+    animation: slideUp 0.5s ease forwards;
+  }
+  
+  .animate-slideIn {
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  .animate-scaleIn {
+    animation: scaleIn 0.5s ease forwards;
+  }
+  
+  .animate-pingOnce {
+    animation: pingOnce 1s cubic-bezier(0, 0, 0.2, 1) forwards;
+  }
+  
+  .animate-gradient-xy {
+    animation: gradient-xy 15s ease infinite;
+    background-size: 400% 400%;
+  }
+  
+  /* Delayed animations */
+  .delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  /* Easing functions */
+  .ease-spring {
+    transition-timing-function: cubic-bezier(0.5, 1.5, 0.5, 1);
+  }
+  
+  /* Enhanced Glass Effect */
+  .glass-effect-strong {
+    @apply bg-white/80 dark:bg-gray-800/80 backdrop-blur-lg border border-white/20 dark:border-gray-700/20;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.07);
+  }
+  
+  /* Enhanced Neumorphic Effects */
+  .neumorphic-light {
+    @apply bg-gray-50;
+    box-shadow: 6px 6px 12px rgba(0, 0, 0, 0.06), -6px -6px 12px rgba(255, 255, 255, 0.8);
+  }
+  
+  .neumorphic-light:hover {
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.08), -8px -8px 16px rgba(255, 255, 255, 0.9);
+  }
+  
+  .neumorphic-dark {
+    @apply bg-gray-800;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5), -5px -5px 10px rgba(255, 255, 255, 0.05);
+  }
+  
+  .neumorphic-dark:hover {
+    box-shadow: 7px 7px 14px rgba(0, 0, 0, 0.6), -7px -7px 14px rgba(255, 255, 255, 0.07);
+  }
+  
+  .neumorphic-inset-light {
+    @apply bg-gray-50;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.06), inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+  }
+  
+  .neumorphic-inset-dark {
+    @apply bg-gray-800;
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.3), inset -2px -2px 4px rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Focus styles that work with neumorphic designs */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-violet-500 focus:ring-opacity-50;
+  }
+}
