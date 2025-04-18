@@ -163,7 +163,7 @@ const MyRoomsPage: React.FC = () => {
                      shadow-[2px_2px_4px_rgba(0,0,0,0.05),-2px_-2px_4px_rgba(255,255,255,0.7)] 
                      dark:shadow-[2px_2px_4px_rgba(0,0,0,0.3),-2px_-2px_4px_rgba(255,255,255,0.04)]`
                   : 'text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 shadow-[2px_2px_4px_rgba(0,0,0,0.05),-2px_-2px_4px_rgba(255,255,255,0.7)] dark:shadow-[2px_2px_4px_rgba(0,0,0,0.3),-2px_-2px_4px_rgba(255,255,255,0.04)] hover:shadow-[1px_1px_2px_rgba(0,0,0,0.05),-1px_-1px_2px_rgba(255,255,255,0.7)] dark:hover:shadow-[1px_1px_2px_rgba(0,0,0,0.3),-1px_-1px_2px_rgba(255,255,255,0.04)]'
-                }`}
+              }`}
               onClick={() => setFilter(filterOption)}
             >
               {filterOption.charAt(0).toUpperCase() + filterOption.slice(1)} Rooms
@@ -234,29 +234,29 @@ const MyRoomsPage: React.FC = () => {
                 hover:translate-y-[-4px] hover:scale-[1.01]`}
               >
                 <div className="p-5 h-full flex flex-col">
-                  {/* Room status badge */}
+                {/* Room status badge */}
                   <div className="flex justify-between items-start mb-4">
                     {/* Status indicator */}
-                    {room.isLive ? (
+                {room.isLive ? (
                       <div className="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
                         text-red-800 bg-red-50 dark:text-red-200 dark:bg-red-900/30"
                       >
                         <span className="relative flex h-2 w-2 mr-1.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75 dark:bg-red-500"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500 dark:bg-red-400"></span>
-                        </span>
+                  </span>
                         <span>Live Now</span>
                       </div>
-                    ) : room.scheduledFor ? (
+                ) : room.scheduledFor ? (
                       <div className="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
                         text-blue-800 bg-blue-50 dark:text-blue-200 dark:bg-blue-900/30"
                       >
                         <svg className="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
                         <span>Upcoming</span>
                       </div>
-                    ) : room.isHost ? (
+                ) : room.isHost ? (
                       <div className="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium
                         text-green-800 bg-green-50 dark:text-green-200 dark:bg-green-900/30"
                       >
@@ -272,17 +272,17 @@ const MyRoomsPage: React.FC = () => {
                     
                     {/* Participant and speaker count */}
                     <div className="flex space-x-3 text-xs text-gray-600 dark:text-gray-400">
-                      <div className="flex items-center">
+                    <div className="flex items-center">
                         <svg className="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                        </svg>
-                        {room.participantCount}
-                      </div>
-                      <div className="flex items-center">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                      {room.participantCount}
+                    </div>
+                    <div className="flex items-center">
                         <svg className="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
-                        </svg>
-                        {room.speakerCount}
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z" />
+                      </svg>
+                      {room.speakerCount}
                       </div>
                     </div>
                   </div>
@@ -315,32 +315,32 @@ const MyRoomsPage: React.FC = () => {
                         +{room.topics.length - 2} more
                       </span>
                     )}
-                  </div>
-                  
+                </div>
+                
                   {/* Footer with time and action button */}
                   <div className="flex justify-between items-center mt-auto">
-                    <div>
-                      {room.scheduledFor && (
-                        <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center">
+                  <div>
+                    {room.scheduledFor && (
+                      <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center">
                           <svg className="w-3.5 h-3.5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                          </svg>
-                          {new Date(room.scheduledFor).toLocaleDateString()} at {new Date(room.scheduledFor).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                        </div>
-                      )}
-                      {room.startedAt && !room.isLive && (
-                        <div className="text-xs text-gray-500 dark:text-gray-400">
-                          {new Date(room.startedAt).toLocaleDateString()}
-                        </div>
-                      )}
-                    </div>
-                    
-                    <Link 
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        {new Date(room.scheduledFor).toLocaleDateString()} at {new Date(room.scheduledFor).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                      </div>
+                    )}
+                    {room.startedAt && !room.isLive && (
+                      <div className="text-xs text-gray-500 dark:text-gray-400">
+                        {new Date(room.startedAt).toLocaleDateString()}
+                      </div>
+                    )}
+                  </div>
+                  
+                  <Link 
                       to={`/room/${room.id}`}
                       className={`inline-flex items-center justify-center px-4 py-1.5 rounded-lg
                         ${room.isLive 
                           ? 'text-red-600 bg-red-50 dark:text-red-200 dark:bg-red-900/20' 
-                          : room.scheduledFor
+                        : room.scheduledFor
                           ? 'text-blue-600 bg-blue-50 dark:text-blue-200 dark:bg-blue-900/20'
                           : 'text-violet-600 bg-violet-50 dark:text-violet-200 dark:bg-violet-900/20'
                         }
@@ -361,8 +361,8 @@ const MyRoomsPage: React.FC = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         )}
                       </svg>
-                      {room.isLive ? 'Join Now' : room.scheduledFor ? 'View Details' : 'View Recap'}
-                    </Link>
+                    {room.isLive ? 'Join Now' : room.scheduledFor ? 'View Details' : 'View Recap'}
+                  </Link>
                   </div>
                 </div>
               </div>
@@ -562,11 +562,11 @@ const MyRoomsPage: React.FC = () => {
                   <div className="mt-4">
                     <div className="flex items-center">
                       <div className="relative inline-block w-10 mr-3 align-middle">
-                        <input 
-                          id="isPrivate" 
-                          type="checkbox"
-                          checked={newRoomData.isPrivate}
-                          onChange={(e) => setNewRoomData({...newRoomData, isPrivate: e.target.checked})} 
+                      <input
+                        id="isPrivate"
+                        type="checkbox"
+                        checked={newRoomData.isPrivate}
+                        onChange={(e) => setNewRoomData({...newRoomData, isPrivate: e.target.checked})}
                           className="peer sr-only" 
                         />
                         <label 
@@ -627,7 +627,7 @@ const MyRoomsPage: React.FC = () => {
                       <svg className="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
                       </svg>
-                      Create Room
+                    Create Room
                     </span>
                   </motion.button>
                 </div>

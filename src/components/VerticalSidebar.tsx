@@ -172,8 +172,8 @@ const VerticalSidebar: React.FC<VerticalSidebarProps> = ({
                 onMouseEnter={() => setActiveSection(link.path)}
                 onMouseLeave={() => setActiveSection(null)}
               >
-                <Link
-                  to={link.path}
+            <Link
+              to={link.path}
                   className={`flex items-center ${isExpanded ? 'justify-start px-4' : 'justify-center'} py-3 rounded-lg ${
                     isActiveLink
                       ? 'bg-gray-100 dark:bg-gray-800 font-medium shadow-[inset_2px_2px_4px_rgba(0,0,0,0.02),inset_-2px_-2px_4px_rgba(255,255,255,0.7)] dark:shadow-[inset_2px_2px_4px_rgba(0,0,0,0.1),inset_-2px_-2px_4px_rgba(255,255,255,0.025)]'
@@ -183,7 +183,7 @@ const VerticalSidebar: React.FC<VerticalSidebarProps> = ({
                 >
                   {/* Animated Active Indicator */}
                   {isActiveLink && (
-                    <motion.div 
+                  <motion.div
                       className="absolute left-0 top-0 bottom-0 w-1 rounded-r bg-gradient-to-b from-violet-600 to-purple-600 dark:from-violet-500 dark:to-purple-500"
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: '100%', opacity: 1 }}

@@ -183,7 +183,7 @@ const Logo: React.FC<LogoProps> = ({
               fontSize="20"
               fill={`url(#${textGradientId})`}
             >
-              WON
+              SWAA
             </text>
           </svg>
         </motion.div>
